@@ -30,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofphp/php-cs-fixer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ocramius/package-versions" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ocramius/proxy-manager" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/pagerfanta/pagerfanta" />
@@ -65,9 +66,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/intl" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/orm-pack" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />

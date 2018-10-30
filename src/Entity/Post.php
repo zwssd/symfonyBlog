@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
- * @ORM\Table(name="symfony_demo_post")
+ * @ORM\Table(name="symfonyBlog_post")
  *
  * Defines the properties of the Post entity to represent the blog posts.
  *
@@ -116,11 +116,17 @@ class Post
      * @var Tag[]|ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", cascade={"persist"})
-     * @ORM\JoinTable(name="symfony_demo_post_tag")
+     * @ORM\JoinTable(name="symfonyBlog_post_tag")
      * @ORM\OrderBy({"name": "ASC"})
      * @Assert\Count(max="4", maxMessage="post.too_many_tags")
      */
     private $tags;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="post")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category_id;
 
     public function __construct()
     {
@@ -230,5 +236,17 @@ class Post
     public function getTags(): Collection
     {
         return $this->tags;
+    }
+
+    public function getCategoryId(): ?Category
+    {
+        return $this->category_id;
+    }
+
+    public function setCategoryId(?Category $category_id): self
+    {
+        $this->category_id = $category_id;
+
+        return $this;
     }
 }

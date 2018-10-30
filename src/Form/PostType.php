@@ -11,10 +11,11 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Post;
 use App\Form\Type\DateTimePickerType;
 use App\Form\Type\TagsInputType;
-use App\Form\Type\CategoryInputType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -65,9 +66,9 @@ class PostType extends AbstractType
                 'label' => 'label.tags',
                 'required' => false,
             ])
-            ->add('category', CategoryInputType::class, [
-                'label' => 'label.cname',
-                'required' => false,
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'cname',
             ])
         ;
     }

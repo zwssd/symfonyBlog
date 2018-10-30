@@ -25,7 +25,7 @@ class Category
     private $cname;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category")
      */
     private $post;
 
@@ -63,7 +63,7 @@ class Category
     {
         if (!$this->post->contains($post)) {
             $this->post[] = $post;
-            $post->setCategoryId($this);
+            $post->setCategory($this);
         }
 
         return $this;
@@ -74,11 +74,12 @@ class Category
         if ($this->post->contains($post)) {
             $this->post->removeElement($post);
             // set the owning side to null (unless already changed)
-            if ($post->getCategoryId() === $this) {
-                $post->setCategoryId(null);
+            if ($post->getCategory() === $this) {
+                $post->setCategory(null);
             }
         }
 
         return $this;
     }
+
 }

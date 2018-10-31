@@ -24,7 +24,7 @@
                 <div class="navbar navbar-default navbar-static-top" role="navigation">
                     <div class="container">
                         <div class="navbar-header col-md-3 col-lg-2">
-                            <a class="navbar-brand" href="{{ path('homepage') }}">
+                            <a class="navbar-brand" href="">
                                 Symfony Demo
                             </a>
 
@@ -113,11 +113,16 @@
 
                     <div id="sidebar" class="col-sm-3">
                         {% block sidebar %}
-                            {{ render_esi(controller('Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController::templateAction', {
-                                'template': 'blog/about.html.twig',
-                                'sharedAge': 600,
-                                '_locale': app.request.locale
-                            })) }}
+                            <div class="section about">
+                                <div class="well well-lg">
+                                    <p>
+                                        {{ 'help.app_description'|trans|raw }}
+                                    </p>
+                                    <p>
+                                        {{ 'help.more_information'|trans|raw }}
+                                    </p>
+                                </div>
+                            </div>
                         {% endblock %}
                     </div>
                 </div>
@@ -129,8 +134,8 @@
                 <div class="container">
                     <div class="row">
                         <div id="footer-copyright" class="col-md-6">
-                            <p>&copy; {{ 'now'|date('Y') }} - The Symfony Project</p>
-                            <p>{{ 'mit_license'|trans }}</p>
+                            <p>&copy; {{ 'now'|date('Y') }} - The Blog</p>
+                            <p>{{ 'GPL3_license'|trans }}</p>
                         </div>
                         <div id="footer-resources" class="col-md-6">
                             <p>

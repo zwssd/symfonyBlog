@@ -243,6 +243,10 @@
                 <source>menu.homepage</source>
                 <target>主页</target>
             </trans-unit>
+            <trans-unit id="menu.search">
+                <source>menu.search</source>
+                <target>搜索</target>
+            </trans-unit>
             <trans-unit id="menu.admin">
                 <source>menu.admin</source>
                 <target>后台</target>
@@ -300,7 +304,7 @@
 
             <trans-unit id="help.app_description">
                 <source>help.app_description</source>
-                <target><![CDATA[这是一个使用Symfony框架构建的 <strong> 示例应用 </strong> , 用以介绍开发Symfony应用的推荐方式.]]></target>
+                <target><![CDATA[这是一个致力于将<strong>科技传播</strong>开的站点, 用以介绍最新的科技趋势.]]></target>
             </trans-unit>
             <trans-unit id="help.show_code">
                 <source>help.show_code</source>
@@ -336,7 +340,7 @@
             </trans-unit>
             <trans-unit id="help.more_information">
                 <source>help.more_information</source>
-                <target><![CDATA[了解更多信息, 请查看 <a href="https://symfony.com/doc">Symfony 文档 </a>.]]></target>
+                <target><![CDATA[如果你觉得本站不错，请打赏！ <a href="/about">打赏地址</a>]]></target>
             </trans-unit>
 
             <trans-unit id="rss.title">

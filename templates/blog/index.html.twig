@@ -12,7 +12,7 @@
             </h2>
 
             <p class="post-metadata">
-                <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt|localizeddate('long', 'medium', null, 'UTC') }}</span>
+                <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt|date('Y-m-d') }}</span>
                 <span class="metadata"><i class="fa fa-user"></i> {{ post.author.fullName }}</span>
             </p>
 
@@ -34,6 +34,6 @@
 {% block sidebar %}
     {{ parent() }}
 
-    {{ show_source_code(_self) }}
+    {# show_source_code(_self) #}
     {{ include('blog/_rss.html.twig') }}
 {% endblock %}

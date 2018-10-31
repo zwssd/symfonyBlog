@@ -15,8 +15,8 @@ webpackJsonp([6],{
     // in a real application, hardcoding the user/password would be idiotic
     // but for the demo application it's very convenient to do so
     if (!usernameEl.val() && !passwordEl.val()) {
-        usernameEl.val('jane_admin');
-        passwordEl.val('kitten');
+        //usernameEl.val('');
+        //passwordEl.val('');
     }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))

@@ -25,6 +25,18 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class SecurityController extends AbstractController
 {
+  /**
+  * @Route("register", name="security_register")
+  */
+  public function register(AuthenticationUtils $helper): Response
+  {
+    return $this->render('security/register.html.twig', [
+        // last username entered by the user (if any)
+        'last_username' => $helper->getLastUsername(),
+        // last authentication error (if any)
+        'error' => $helper->getLastAuthenticationError(),
+    ]);
+  }
     /**
      * @Route("/login", name="security_login")
      */

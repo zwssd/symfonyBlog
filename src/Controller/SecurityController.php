@@ -11,10 +11,14 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Controller used to manage the application security.
@@ -25,26 +29,40 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class SecurityController extends AbstractController
 {
-  /**
-  * @Route("register", name="security_register")
-  */
-  public function register(AuthenticationUtils $helper): Response
-  {
-    return $this->render('security/register.html.twig', [
-        // last username entered by the user (if any)
-        'last_username' => $helper->getLastUsername(),
-        // last authentication error (if any)
-        'error' => $helper->getLastAuthenticationError(),
-    ]);
-  }
+    /**
+     * @Route("register", methods={"GET", "POST"}, name="security_register")
+     */
+    public function register(AuthenticationUtils $helper, Request $request, UserPasswordEncoderInterface $encoder): Response
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword($encoder->encodePassword($user, $form->get('password')->getData()));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            var_dump($user);
+            die();
+            return $this->redirectToRoute('security_login');
+        }
+        return $this->render('security/register.html.twig', [
+            // last authentication error (if any)
+            'error' => $helper->getLastAuthenticationError(),
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
     /**
      * @Route("/login", name="security_login")
      */
     public function login(AuthenticationUtils $helper): Response
     {
         return $this->render('security/login.html.twig', [
-            // last username entered by the user (if any)
-            'last_username' => $helper->getLastUsername(),
             // last authentication error (if any)
             'error' => $helper->getLastAuthenticationError(),
         ]);

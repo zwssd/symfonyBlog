@@ -76,6 +76,10 @@
                 <source>title.login</source>
                 <target>登录</target>
             </trans-unit>
+            <trans-unit id="title.register">
+                <source>title.register</source>
+                <target>注册</target>
+            </trans-unit>
             <trans-unit id="title.post_list">
                 <source>title.post_list</source>
                 <target>文章列表</target>
@@ -161,6 +165,10 @@
                 <source>action.sign_in</source>
                 <target>登录</target>
             </trans-unit>
+            <trans-unit id="action.sign_up">
+                <source>action.sign_up</source>
+                <target>注册</target>
+            </trans-unit>
             <trans-unit id="action.browse_app">
                 <source>action.browse_app</source>
                 <target>浏览博客前台</target>
@@ -189,6 +197,18 @@
             <trans-unit id="label.password">
                 <source>label.password</source>
                 <target>密码</target>
+            </trans-unit>
+            <trans-unit id="label.repassword">
+                <source>label.repassword</source>
+                <target>重复输入密码</target>
+            </trans-unit>
+            <trans-unit id="label.fullname">
+                <source>label.fullname</source>
+                <target>姓名</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>邮箱</target>
             </trans-unit>
             <trans-unit id="label.role">
                 <source>label.role</source>

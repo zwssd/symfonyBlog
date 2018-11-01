@@ -15,6 +15,9 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -28,7 +31,7 @@ class UserType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         // For the full reference of options defined by each form field type
         // see https://symfony.com/doc/current/reference/forms/types.html
@@ -42,21 +45,28 @@ class UserType extends AbstractType
         $builder
             ->add('username', TextType::class, [
                 'label' => 'label.username',
-                'disabled' => true,
             ])
-            ->add('fullName', TextType::class, [
+            ->add('password', RepeatedType::class, array(
+                'first_name'  => 'password',
+                'second_name' => 'password2',
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password'),
+                'type'        => PasswordType::class,
+            ))
+            ->add('fullname', TextType::class, [
                 'label' => 'label.fullname',
             ])
             ->add('email', EmailType::class, [
                 'label' => 'label.email',
             ])
+            ->add('save', SubmitType::class)
         ;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => User::class,

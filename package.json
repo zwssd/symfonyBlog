@@ -20,5 +20,8 @@
     "dev": "./node_modules/.bin/encore dev",
     "watch": "./node_modules/.bin/encore dev --watch",
     "build": "./node_modules/.bin/encore production"
+  },
+  "dependencies": {
+    "popper.js": "^1.14.4"
   }
 }

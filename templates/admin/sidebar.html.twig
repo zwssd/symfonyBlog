@@ -1,0 +1,42 @@
+<div class="container">
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'menu.post_manager'|trans }}
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+        	<a href="{{ path('admin_post_index') }}">
+            	<i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'menu.post_list'|trans }}
+			</a>
+        </div>
+        <div class="card-body">
+    		<a href="{{ path('admin_post_new') }}">
+        		<i class="fa fa-plus" aria-hidden="true"></i> {{ 'action.create_post'|trans }}
+			</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'menu.category_manager'|trans }}
+      	</a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+        	<a href="{{ path('admin_category_index') }}">
+            	<i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'menu.category_list'|trans }}
+			</a>
+        </div>
+        <div class="card-body">
+    		<a href="{{ path('admin_category_new') }}">
+        		<i class="fa fa-plus" aria-hidden="true"></i> {{ 'action.create_category'|trans }}
+			</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

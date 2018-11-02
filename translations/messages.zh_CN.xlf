@@ -80,6 +80,10 @@
                 <source>title.register</source>
                 <target>注册</target>
             </trans-unit>
+            <trans-unit id="title.post_manager">
+                <source>title.post_manager</source>
+                <target>文章管理</target>
+            </trans-unit>
             <trans-unit id="title.post_list">
                 <source>title.post_list</source>
                 <target>文章列表</target>
@@ -144,6 +148,10 @@
             <trans-unit id="action.create_post">
                 <source>action.create_post</source>
                 <target>添加一篇新文章</target>
+            </trans-unit>
+            <trans-unit id="action.create_category">
+                <source>action.create_category</source>
+                <target>添加一个分类</target>
             </trans-unit>
             <trans-unit id="label.create_post">
                 <source>label.create_post</source>
@@ -251,9 +259,21 @@
                 <source>menu.choose_language</source>
                 <target>选择语言</target>
             </trans-unit>
+            <trans-unit id="menu.post_manager">
+                <source>menu.post_manager</source>
+                <target>文章管理</target>
+            </trans-unit>
+            <trans-unit id="menu.category_manager">
+                <source>menu.category_manager</source>
+                <target>分类管理</target>
+            </trans-unit>
             <trans-unit id="menu.post_list">
                 <source>menu.post_list</source>
                 <target>文章列表</target>
+            </trans-unit>
+            <trans-unit id="menu.category_list">
+                <source>menu.category_list</source>
+                <target>分类列表</target>
             </trans-unit>
             <trans-unit id="menu.back_to_blog">
                 <source>menu.back_to_blog</source>

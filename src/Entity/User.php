@@ -14,10 +14,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="symfonyBlog_user")
+ * @UniqueEntity(fields={"username", "email"}, message="This username or email is already in use.")
  *
  * Defines the properties of the User entity to represent the application users.
  * See https://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class

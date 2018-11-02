@@ -2,38 +2,38 @@
 
 {% block body_id 'login' %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('build/js/login.js') }}"></script>
-{% endblock %}
+	{% block javascripts %}
+		{{ parent() }}
+		<script src="{{ asset('build/js/login.js') }}"></script>
+	{% endblock %}
 
-{% block main %}
-    {% if error %}
-        <div class="alert alert-danger">
-            {{ error.messageKey|trans(error.messageData, 'security') }}
-        </div>
-    {% endif %}
+	{% block main %}
+		{% if error %}
+			<div class="alert alert-danger">
+				{{ error.messageKey|trans(error.messageData, 'security') }}
+			</div>
+		{% endif %}
 
-    <div class="row">
-    <div id="login-help" class="col-sm-4">
-    </div>
-        <div class="col-sm-5">
-            <div class="well">
-                {{ form_start(form) }}
-                {{ form_row(form.username) }}
-                {{ form_row(form.password) }}
-                {{ form_row(form.fullname) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.save) }}
-                {{ form_end(form) }}
-            </div>
-        </div>
+		<div class="row">
+			<div id="login-help" class="col-sm-4">
+			</div>
+			<div class="col-sm-5">
+				<div class="well">
+					{{ form_start(form) }}
+					{{ form_row(form.username) }}
+					{{ form_row(form.password) }}
+					{{ form_row(form.fullname) }}
+					{{ form_row(form.email) }}
+					{{ form_row(form.save) }}
+					{{ form_end(form) }}
+				</div>
+			</div>
 
 
-    </div>
-{% endblock %}
+		</div>
+	{% endblock %}
 
-{% block sidebar %}
-    {{ parent() }}
+	{% block sidebar %}
+		{{ parent() }}
 
-{% endblock %}
+	{% endblock %}

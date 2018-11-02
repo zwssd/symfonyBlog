@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59f92ac5-fae1-498f-8094-3b8f470e5eef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/data/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/post_show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +17,7 @@
     <session id="1918896940">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.24" value="1" />
@@ -441,12 +436,12 @@
       <workItem from="1540951980281" duration="15888000" />
       <workItem from="1541038939659" duration="3949000" />
       <workItem from="1541063781077" duration="13407000" />
-      <workItem from="1541120590407" duration="2674000" />
+      <workItem from="1541120590407" duration="3269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45307000" />
+    <option name="totallyTimeSpent" value="45902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="723" extended-state="6" />

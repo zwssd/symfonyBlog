@@ -45,8 +45,6 @@ class SecurityController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            var_dump($user);
-            die();
             return $this->redirectToRoute('security_login');
         }
         return $this->render('security/register.html.twig', [

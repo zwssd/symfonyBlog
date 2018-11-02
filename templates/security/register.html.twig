@@ -26,36 +26,6 @@
                 {{ form_row(form.email) }}
                 {{ form_row(form.save) }}
                 {{ form_end(form) }}
-                <form action="{{ path('security_register') }}" method="post">
-                    <fieldset>
-                        <legend><i class="fa fa-lock" aria-hidden="true"></i> {{ 'title.register'|trans }}</legend>
-                        <div class="form-group">
-                            <label for="username">{{ 'label.username'|trans }}</label>
-                            <input type="text" id="username" name="_username" value="" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">{{ 'label.password'|trans }}</label>
-                            <input type="password" id="password" name="_password" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="repassword">{{ 'label.repassword'|trans }}</label>
-                            <input type="password" id="repassword" name="_repassword" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="fullname">{{ 'label.fullname'|trans }}</label>
-                            <input type="text" id="fullname" name="_fullname" value="" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">{{ 'label.email'|trans }}</label>
-                            <input type="text" id="email" name="_email" value="" class="form-control"/>
-                        </div>
-                        <input type="hidden" name="_target_path" value="{{ app.request.get('redirect_to') }}"/>
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-sign-in" aria-hidden="true"></i> {{ 'action.sign_up'|trans }}
-                        </button>
-                    </fieldset>
-                </form>
             </div>
         </div>
 

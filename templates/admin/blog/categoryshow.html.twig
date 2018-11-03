@@ -1,0 +1,15 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_category_show' %}
+
+{% block main %}
+    <h1>{{ category.cname }}</h1>
+
+{% endblock %}
+
+{% block sidebar %}
+	{% include 'admin/sidebar.html.twig' %}
+
+    {{ parent() }}
+
+{% endblock %}

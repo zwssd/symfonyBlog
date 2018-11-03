@@ -12,7 +12,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
-use App\Form\PostType;
+use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use App\Utils\Slugger;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -51,14 +51,13 @@ class CategoryController extends AbstractController
      *     could move this annotation to any other controller while maintaining
      *     the route name and therefore, without breaking any existing link.
      *
-     * @Route("/", methods={"GET"}, name="admin_index")
      * @Route("/", methods={"GET"}, name="admin_category_index")
      */
     public function index(CategoryRepository $categorys): Response
     {
-        $authorCategorys = $categorys->findBy(['id' => 'DESC']);
+        $authorCategorys = $categorys->findBy([],['id' => 'DESC']);
 
-        return $this->render('admin/blog/index.html.twig', ['categorys' => $authorCategorys]);
+        return $this->render('admin/blog/category.html.twig', ['categorys' => $authorCategorys]);
     }
 
     /**
@@ -74,6 +73,7 @@ class CategoryController extends AbstractController
     {
         $category = new Category();
 
+        $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
 
         // the isSubmitted() method is completely optional because the other
@@ -94,7 +94,7 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('admin_category_index');
         }
 
-        return $this->render('admin/blog/new.html.twig', [
+        return $this->render('admin/blog/categorynew.html.twig', [
             'category' => $category,
             'form' => $form->createView(),
         ]);
@@ -107,11 +107,7 @@ class CategoryController extends AbstractController
      */
     public function show(Category $category): Response
     {
-        // This security check can also be performed
-        // using an annotation: @IsGranted("show", subject="category")
-        $this->denyAccessUnlessGranted('show', $category, 'Categorys can only be shown to their authors.');
-
-        return $this->render('admin/blog/show.html.twig', [
+        return $this->render('admin/blog/categoryshow.html.twig', [
             'category' => $category,
         ]);
     }
@@ -120,22 +116,21 @@ class CategoryController extends AbstractController
      * Displays a form to edit an existing Category entity.
      *
      * @Route("/{id<\d+>}/edit",methods={"GET", "POST"}, name="admin_category_edit")
-     * @IsGranted("edit", subject="category", message="Categorys can only be edited by their authors.")
      */
     public function edit(Request $request, Category $category): Response
     {
-        $form = $this->createForm(PostType::class, $post);
+        $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'post.updated_successfully');
+            $this->addFlash('success', 'category.updated_successfully');
 
             return $this->redirectToRoute('admin_category_edit', ['id' => $category->getId()]);
         }
 
-        return $this->render('admin/blog/edit.html.twig', [
+        return $this->render('admin/blog/categoryedit.html.twig', [
             'category' => $category,
             'form' => $form->createView(),
         ]);
@@ -145,7 +140,6 @@ class CategoryController extends AbstractController
      * Deletes a Category entity.
      *
      * @Route("/{id}/delete", methods={"POST"}, name="admin_category_delete")
-     * @IsGranted("delete", subject="category")
      */
     public function delete(Request $request, Category $category): Response
     {
@@ -154,10 +148,10 @@ class CategoryController extends AbstractController
         }
 
         $em = $this->getDoctrine()->getManager();
-        $em->remove($post);
+        $em->remove($category);
         $em->flush();
 
-        $this->addFlash('success', 'post.deleted_successfully');
+        $this->addFlash('success', 'category.deleted_successfully');
 
         return $this->redirectToRoute('admin_category_index');
     }

@@ -81,6 +81,12 @@
                                             </li>
                                         </ul>
                                     </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ path('security_login', {'redirect_to': app.request.pathInfo}) }}">
+                                            <i class="fa fa-home" aria-hidden="true"></i> {{ 'action.sign_in'|trans }}
+                                        </a>
+                                    </li>
                                 {% endif %}
 
                                 <li class="dropdown">

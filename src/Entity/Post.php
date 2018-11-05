@@ -128,6 +128,32 @@ class Post
      */
     private $category;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     */
+    private $entitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="post.blank_summary")
+     * @Assert\Length(max=255)
+     */
+    private $ensummary;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="post.blank_content")
+     * @Assert\Length(min=10, minMessage="post.too_short_content")
+     */
+    private $encontent;
+
     public function __construct()
     {
         $this->publishedAt = new \DateTime();
@@ -246,6 +272,42 @@ class Post
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getEntitle(): ?string
+    {
+        return $this->entitle;
+    }
+
+    public function setEntitle(string $entitle): self
+    {
+        $this->entitle = $entitle;
+
+        return $this;
+    }
+
+    public function getEnsummary(): ?string
+    {
+        return $this->ensummary;
+    }
+
+    public function setEnsummary(string $ensummary): self
+    {
+        $this->ensummary = $ensummary;
+
+        return $this;
+    }
+
+    public function getEncontent(): ?string
+    {
+        return $this->encontent;
+    }
+
+    public function setEncontent(string $encontent): self
+    {
+        $this->encontent = $encontent;
 
         return $this;
     }

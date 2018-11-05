@@ -49,11 +49,24 @@ class PostType extends AbstractType
                 'attr' => ['autofocus' => true],
                 'label' => 'label.title',
             ])
+            ->add('entitle', null, [
+                'attr' => ['autofocus' => true],
+                'label' => 'label.title',
+            ])
             ->add('summary', TextareaType::class, [
                 'help' => 'Summaries can\'t contain Markdown or HTML contents; only plain text.',
                 'label' => 'label.summary',
             ])
+            ->add('ensummary', TextareaType::class, [
+                'help' => 'Summaries can\'t contain Markdown or HTML contents; only plain text.',
+                'label' => 'label.summary',
+            ])
             ->add('content', null, [
+                'attr' => ['rows' => 20],
+                'help' => 'Use Markdown to format the blog post contents. HTML is allowed too.',
+                'label' => 'label.content',
+            ])
+            ->add('encontent', null, [
                 'attr' => ['rows' => 20],
                 'help' => 'Use Markdown to format the blog post contents. HTML is allowed too.',
                 'label' => 'label.content',
